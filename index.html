@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Calendar 2026</title>
+    <style>
+        /* CSS will be added here */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .calendar-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .month {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+        }
+
+        .month h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .calendar {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .calendar th,
+        .calendar td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .calendar th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .calendar td input {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+            border: none;
+            text-align: center;
+        }
+
+        .calendar td input:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar-container">
+    </div>
+    <script>
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        function generateCalendar(year) {
+            let calendarContainer = document.querySelector(".calendar-container");
+
+            for (let month = 0; month < 12; month++) {
+                let monthDiv = document.createElement("div");
+                monthDiv.classList.add("month");
+
+                let monthName = document.createElement("h2");
+                monthName.textContent = months[month] + " " + year;
+                monthDiv.appendChild(monthName);
+
+                let table = document.createElement("table");
+                table.classList.add("calendar");
+
+                let thead = document.createElement("thead");
+                let headerRow = document.createElement("tr");
+                let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                days.forEach(day => {
+                    let th = document.createElement("th");
+                    th.textContent = day;
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+                table.appendChild(thead);
+
+                let tbody = document.createElement("tbody");
+                let firstDay = (new Date(year, month)).getDay();
+                let daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+                let date = 1;
+                for (let i = 0; i < 6; i++) {
+                    let row = document.createElement("tr");
+                    for (let j = 0; j < 7; j++) {
+                        if (i === 0 && j < firstDay) {
+                            let cell = document.createElement("td");
+                            let cellText = document.createTextNode("");
+                            cell.appendChild(cellText);
+                            row.appendChild(cell);
+                        } else if (date > daysInMonth) {
+                            break;
+                        } else {
+                            let cell = document.createElement("td");
+                            let cellText = document.createElement("input");
+                            cellText.type = "text";
+                            cellText.value = date;
+                            cell.appendChild(cellText);
+                            row.appendChild(cell);
+                            date++;
+                        }
+                    }
+                    tbody.appendChild(row);
+                    table.appendChild(tbody);
+                }
+
+                monthDiv.appendChild(table);
+                calendarContainer.appendChild(monthDiv);
+            }
+        }
+
+        generateCalendar(2026);
+    </script>
+</body>
+</html>
