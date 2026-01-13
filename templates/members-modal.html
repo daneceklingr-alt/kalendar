@@ -1,0 +1,33 @@
+<div class="modal fade" id="membersModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Správa členů</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-5">
+            <ul id="membersList" class="list-group"></ul>
+          </div>
+          <div class="col-md-7">
+            <form id="memberForm">
+              <input type="hidden" name="id">
+              <div class="mb-2"><label class="form-label">Jméno</label><input name="name" class="form-control" required></div>
+              <div class="mb-2"><label class="form-label">Barva</label><input name="color" type="color" class="form-control form-control-color" value="#1F77B4"></div>
+              <div class="mb-2 form-check"><input name="isAdmin" type="checkbox" class="form-check-input" id="isAdminChk"><label class="form-check-label" for="isAdminChk">Admin</label></div>
+              <div class="d-flex gap-2">
+                <button type="button" id="addMemberBtn" class="btn btn-success">Přidat</button>
+                <button type="button" id="saveMemberBtn" class="btn btn-primary">Uložit</button>
+                <button type="button" id="deleteMemberBtn" class="btn btn-danger">Smazat</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zavřít</button>
+      </div>
+    </div>
+  </div>
+</div>

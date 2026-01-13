@@ -1,0 +1,15 @@
+:root{ --bg:#f6f7fb; --card:#ffffff; --muted:#6c757d; --accent:#1F77B4; }
+body{ background:var(--bg); color:#222; }
+.navbar-brand{ font-weight:600; }
+#calendar{ background:transparent; padding:10px; }
+.fc .fc-event{ border-radius:6px; }
+.event-color-swatch{ display:inline-block; width:12px; height:12px; border-radius:2px; margin-right:6px; }
+@media (max-width:768px){ .navbar .d-flex{ flex-direction:column; gap:8px; } }
+
+/* Custom event rendering */
+.fc-event-custom{ display:flex; align-items:center; gap:8px; padding:4px 6px; }
+.fc-event-custom .fc-event-title{ font-weight:600; font-size:0.95em; }
+.fc-event-custom .fc-event-member{ margin-left:auto; opacity:0.8; font-size:0.78em; }
+
+/* Toast container tweaks */
+#toastContainer .toast{ min-width:220px; }

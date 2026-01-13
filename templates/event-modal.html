@@ -1,0 +1,26 @@
+<div class="modal fade" id="eventModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Událost</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="eventForm">
+          <div class="mb-2"><label class="form-label">Název</label><input name="title" class="form-control" required></div>
+          <div class="mb-2"><label class="form-label">Typ</label><select name="type" class="form-select"><option>schůzka</option><option>úklid</option><option>návštěva</option><option>deadline</option></select></div>
+          <div class="mb-2"><label class="form-label">Člen</label><select name="memberId" class="form-select"></select></div>
+          <div class="mb-2"><label class="form-label">Start</label><input name="start" type="datetime-local" class="form-control"></div>
+          <div class="mb-2"><label class="form-label">Konec</label><input name="end" type="datetime-local" class="form-control"></div>
+          <div class="mb-2"><label class="form-label">Opakování (text nebo RRULE)</label><input name="recurrence" class="form-control"></div>
+          <div class="mb-2"><label class="form-label">Popis</label><textarea name="description" class="form-control"></textarea></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="deleteEventBtn">Smazat</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zrušit</button>
+        <button type="button" class="btn btn-primary" id="saveEventBtn">Uložit</button>
+      </div>
+    </div>
+  </div>
+</div>
